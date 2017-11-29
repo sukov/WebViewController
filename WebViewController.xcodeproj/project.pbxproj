@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		EE7744E91FCC623900B68D38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7744E81FCC623900B68D38 /* Images.xcassets */; };
+		EECA61591FCEF2D300CB7435 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EECA61561FCEF2D300CB7435 /* LICENSE */; };
+		EECA615A1FCEF2D300CB7435 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EECA61571FCEF2D300CB7435 /* README.md */; };
+		EECA615B1FCEF2D300CB7435 /* WebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EECA61581FCEF2D300CB7435 /* WebViewController.podspec */; };
 		EED4DEC31FCB28D000B08F07 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EED4DEC11FCB28D000B08F07 /* Info.plist */; };
 		EED4DEC41FCB28D000B08F07 /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EED4DEC21FCB28D000B08F07 /* WebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EED4DF0A1FCB2BA300B08F07 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EED4DF071FCB2BA300B08F07 /* LICENSE */; };
-		EED4DF0B1FCB2BA300B08F07 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EED4DF081FCB2BA300B08F07 /* README.md */; };
-		EED4DF0C1FCB2BA300B08F07 /* WebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EED4DF091FCB2BA300B08F07 /* WebViewController.podspec */; };
 		EED4DF101FCB2C5400B08F07 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4DF0F1FCB2C5400B08F07 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE7744E81FCC623900B68D38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EECA61561FCEF2D300CB7435 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		EECA61571FCEF2D300CB7435 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		EECA61581FCEF2D300CB7435 /* WebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewController.podspec; sourceTree = SOURCE_ROOT; };
 		EED4DEAA1FCB273200B08F07 /* WebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED4DEC11FCB28D000B08F07 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EED4DEC21FCB28D000B08F07 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		EED4DF071FCB2BA300B08F07 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		EED4DF081FCB2BA300B08F07 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		EED4DF091FCB2BA300B08F07 /* WebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewController.podspec; sourceTree = "<group>"; };
 		EED4DF0F1FCB2C5400B08F07 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,9 +93,9 @@
 		EED4DF051FCB2B8600B08F07 /* Deployment */ = {
 			isa = PBXGroup;
 			children = (
-				EED4DF071FCB2BA300B08F07 /* LICENSE */,
-				EED4DF081FCB2BA300B08F07 /* README.md */,
-				EED4DF091FCB2BA300B08F07 /* WebViewController.podspec */,
+				EECA61561FCEF2D300CB7435 /* LICENSE */,
+				EECA61571FCEF2D300CB7435 /* README.md */,
+				EECA61581FCEF2D300CB7435 /* WebViewController.podspec */,
 			);
 			name = Deployment;
 			path = Source;
@@ -171,9 +171,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EED4DF0A1FCB2BA300B08F07 /* LICENSE in Resources */,
+				EECA61591FCEF2D300CB7435 /* LICENSE in Resources */,
 				EE7744E91FCC623900B68D38 /* Images.xcassets in Resources */,
-				EED4DF0C1FCB2BA300B08F07 /* WebViewController.podspec in Resources */,
+				EECA615B1FCEF2D300CB7435 /* WebViewController.podspec in Resources */,
 				EED4DEC31FCB28D000B08F07 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,8 +185,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECA615A1FCEF2D300CB7435 /* README.md in Sources */,
 				EED4DF101FCB2C5400B08F07 /* WebViewController.swift in Sources */,
-				EED4DF0B1FCB2BA300B08F07 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
