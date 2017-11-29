@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode8.1
+branches:
+  only:
+    - master
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - WORKSPACE=WebViewController.xcworkspace
+  - IOS_FRAMEWORK_SCHEME="WebViewController"
+  - EXAMPLE_SCHEME="Example"
+  - ACTION=test
+  - DESTINATION='platform=iOS Simulator,name=iPhone 6S'
+script:
+  - set -o pipefail
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$IOS_FRAMEWORK_SCHEME" -destination "$DESTINATION" $ACTION | xcpretty
