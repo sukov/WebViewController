@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WebViewController'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'In-app web browser'
   s.homepage         = 'https://github.com/sukov/WebViewController'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
   s.platform              = :ios, '9.0'
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'WebViewController/Classes/**/*'
-  s.resources             = 'WebViewController/Assets/*.xcassets'
+  s.source_files = 'Source/**/*.{h,swift}'
+  s.resources             = 'Source/Resources/*.xcassets'
   s.frameworks            = 'UIKit', 'Foundation'
 
   # s.resource_bundles = {
