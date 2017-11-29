@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WebViewController'
-  s.version          = '1.0.2'
+  s.version          = '1.0.2' 
   s.summary          = 'In-app web browser'
   s.homepage         = 'https://github.com/sukov/WebViewController'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
