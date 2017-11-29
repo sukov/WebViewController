@@ -11,4 +11,4 @@ env:
   - EXAMPLE_SCHEME="Example"
   - DESTINATION='platform=iOS Simulator,name=iPhone 6S'
 script:
-  - xcodebuild clean -workspace "$WORKSPACE" -scheme "$IOS_FRAMEWORK_SCHEME" -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  - set -o pipefail && xcodebuild -workspace "$WORKSPACE" -scheme "$IOS_FRAMEWORK_SCHEME" -destination "$DESTINATION" | xcpretty
