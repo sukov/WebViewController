@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE1089531FD498B7006B1DC7 /* SHGWebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EE1089521FD498B7006B1DC7 /* SHGWebViewController.podspec */; };
 		EE7744E91FCC623900B68D38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7744E81FCC623900B68D38 /* Images.xcassets */; };
-		EECA615B1FCEF2D300CB7435 /* WebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EECA61581FCEF2D300CB7435 /* WebViewController.podspec */; };
 		EED4DEC41FCB28D000B08F07 /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EED4DEC21FCB28D000B08F07 /* WebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EED4DF101FCB2C5400B08F07 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4DF0F1FCB2C5400B08F07 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE1089521FD498B7006B1DC7 /* SHGWebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SHGWebViewController.podspec; sourceTree = SOURCE_ROOT; };
 		EE7744E81FCC623900B68D38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EECA61561FCEF2D300CB7435 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		EECA61571FCEF2D300CB7435 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		EECA61581FCEF2D300CB7435 /* WebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewController.podspec; sourceTree = SOURCE_ROOT; };
 		EED4DEAA1FCB273200B08F07 /* WebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED4DEC11FCB28D000B08F07 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EED4DEC21FCB28D000B08F07 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			children = (
 				EECA61561FCEF2D300CB7435 /* LICENSE */,
 				EECA61571FCEF2D300CB7435 /* README.md */,
-				EECA61581FCEF2D300CB7435 /* WebViewController.podspec */,
+				EE1089521FD498B7006B1DC7 /* SHGWebViewController.podspec */,
 			);
 			name = Deployment;
 			path = Source;
@@ -169,7 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7744E91FCC623900B68D38 /* Images.xcassets in Resources */,
-				EECA615B1FCEF2D300CB7435 /* WebViewController.podspec in Resources */,
+				EE1089531FD498B7006B1DC7 /* SHGWebViewController.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
