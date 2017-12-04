@@ -29,8 +29,10 @@ import WebViewController
 func webViewController(_ webViewController: WebViewController, setupAppearanceForMain view: UIView)
 func webViewControllerDidStartLoad(_ webViewController: WebViewController)
 func webViewControllerDidFinishLoad(_ webViewController: WebViewController)
-func webViewController(_ webViewController: WebViewController, disabledTintColorFor button: UIButton) -> UIColor // default gray
-func webViewController(_ webViewController: WebViewController, enabledTintColorFor button: UIButton) -> UIColor // default blue
+// default color .gray
+func webViewController(_ webViewController: WebViewController, disabledTintColorFor button: UIButton) -> UIColor
+// default color .blue
+func webViewController(_ webViewController: WebViewController, enabledTintColorFor button: UIButton) -> UIColor
 ```
 
 ## Author
