@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.version          = '1.0.0'
   s.summary          = 'In-app web browser'
   s.homepage         = 'https://github.com/sukov/WebViewController'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://i.imgur.com/UyhjS4P.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'sukov' => 'gorjan5@hotmail.com' }
   s.source           = { :git => 'https://github.com/sukov/WebViewController.git', :tag => s.version.to_s }
