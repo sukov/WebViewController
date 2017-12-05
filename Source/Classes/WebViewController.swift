@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 public protocol WebViewControllerDelegate: class {
     func webViewController(_ webViewController: WebViewController, setupAppearanceForMain view: UIView)
@@ -33,8 +34,12 @@ public extension WebViewControllerDelegate {
 }
 
 public class WebViewController: UIViewController {
-    fileprivate var webView: UIWebView!
-    fileprivate var toolBarView: UIView = UIView()
+    fileprivate var webView: WKWebView!
+    fileprivate lazy var toolBarView: UIView = {
+        let toolBarView = UIView()
+        toolBarView.backgroundColor = .white
+        return toolBarView
+    }()
     public var toolBarTintColor: UIColor {
         get {
             return toolBarView.backgroundColor ?? .white
@@ -227,7 +232,7 @@ public class WebViewController: UIViewController {
     
     fileprivate func loadUrl() {
         if let url = URL(string: urlToLoad) {
-            webView.loadRequest(URLRequest(url: url))
+            webView.load(URLRequest(url: url))
         }
     }
     
@@ -264,13 +269,15 @@ public class WebViewController: UIViewController {
      
      - Returns: A new optional string from the execution of the javascript file
      */
-    public func injectJavascriptFrom(resource: String) -> String? {
+    public func injectJavascriptFrom(resource: String, complete: @escaping (_ resultString: String?) -> Void) {
         let jsPath: String? = Bundle.main.path(forResource: resource, ofType: "js")
         if let jsPath = jsPath {
             let js = try? String(contentsOfFile: jsPath, encoding: String.Encoding.utf8)
-            return webView.stringByEvaluatingJavaScript(from: js ?? "")
+            webView.evaluateJavaScript(js ?? "") { (result, error) in
+                complete(result as? String)
+            }
         }
-        return nil
+        complete(nil)
     }
     
     /**
@@ -280,18 +287,20 @@ public class WebViewController: UIViewController {
      
      - Returns: A new optional string from the execution of the javascript code
      */
-    public func injectJavascriptFrom(string: String) -> String? {
-        return webView.stringByEvaluatingJavaScript(from: string)
+    public func injectJavascriptFrom(string: String, complete: @escaping (_ resultString: String?) -> Void) {
+        webView.evaluateJavaScript(string) { (result, error) in
+            complete(result as? String)
+        }
     }
 }
 
-extension WebViewController: UIWebViewDelegate {
-    public func webViewDidStartLoad(_ webView: UIWebView) {
+extension WebViewController: WKNavigationDelegate {
+    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         delegate?.webViewControllerDidStartLoad(self)
         activityIndicatorON()
     }
     
-    public func webViewDidFinishLoad(_ webView: UIWebView) {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         delegate?.webViewControllerDidFinishLoad(self)
         activityIndicatorOFF()
         backButton.isEnabled = webView.canGoBack
