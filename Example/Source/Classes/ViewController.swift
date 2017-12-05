@@ -117,10 +117,13 @@ extension ViewController: UITableViewDelegate {
         let webVC = WebViewController(urlToLoad: urlToLoad)
         webVC.delegate = self
         webVC.toolBarTintColor = UIColor.gray.withAlphaComponent(0.5)
+        webVC.progressTintColor = .red
         
         switch indexPath.row {
         case 0: navigationController?.pushViewController(webVC, animated: true)
-        case 1: present(webVC, animated: true, completion: nil)
+        case 1:
+            let navigationVC = UINavigationController(rootViewController: webVC)
+            present(navigationVC, animated: true, completion: nil)
         default: break
         }
     }
