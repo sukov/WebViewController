@@ -34,6 +34,7 @@ public extension WebViewControllerDelegate {
 }
 
 public class WebViewController: UIViewController {
+    fileprivate let bundle = Bundle(for: WebViewController.self)
     fileprivate let estimatedProgressKeyPath = "estimatedProgress"
     fileprivate let titleKeyPath = "title"
     fileprivate var webView: WKWebView!
@@ -166,7 +167,6 @@ public class WebViewController: UIViewController {
         view.addSubview(webView)
         
         let imageEdgeInsets = UIEdgeInsetsMake(12, 0, 12, 0)
-        let bundle = Bundle(for: type(of: self))
         
         backButton = UIButton()
         backButton.tag = 0
@@ -256,6 +256,10 @@ public class WebViewController: UIViewController {
         }
         navigationItem.title = titleUrl
         
+        if navigationController.childViewControllers.count == 1 {
+            let closeBarButton = UIBarButtonItem(image: UIImage(named: "closeX", in: bundle, compatibleWith: nil), style: .plain, target: self, action: #selector(closeButtonTapped))
+            navigationItem.leftBarButtonItem = closeBarButton
+        }
     }
     
     fileprivate func setupObservers() {
@@ -266,6 +270,10 @@ public class WebViewController: UIViewController {
     fileprivate func removeObservers() {
         webView.removeObserver(self, forKeyPath: estimatedProgressKeyPath)
         webView.removeObserver(self, forKeyPath: titleKeyPath)
+    }
+    
+    @objc fileprivate func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
     
     @objc fileprivate func backButtonTapped() {
