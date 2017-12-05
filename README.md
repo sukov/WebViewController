@@ -3,16 +3,41 @@
 [![CI Status](http://img.shields.io/travis/sukov/WebViewController.svg?style=flat)](https://travis-ci.org/sukov/SHGWebViewController)
 [![Version](https://img.shields.io/cocoapods/v/SHGWebViewController.svg?style=flat)](http://cocoapods.org/pods/SHGWebViewController)
 [![License](https://img.shields.io/cocoapods/l/SHGWebViewController.svg?style=flat)](http://cocoapods.org/pods/SHGWebViewController)
-[![Language Swift](https://img.shields.io/badge/Language-Swift%203.0-orange.svg?style=flat)](https://swift.org)
+[![Language Swift](https://img.shields.io/badge/Language-Swift%204.0-orange.svg?style=flat)](https://swift.org)
 [![Platform](https://img.shields.io/cocoapods/p/SHGWebViewController.svg?style=flat)](http://cocoapods.org/pods/SHGWebViewController)
 
 ## Installation
 
-SHGWebViewController is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate WebViewController into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+target '<Your Target Name>' do
 pod 'SHGWebViewController'
+end
+```
+
+#### To use with Swift 3.x please ensure that you specify version 1.0.1
+
+```ruby
+pod 'SHGWebViewController', '~> 1.0.1'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
 ```
 
 ## Usage
