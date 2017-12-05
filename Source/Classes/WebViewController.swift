@@ -391,4 +391,9 @@ extension WebViewController: WKNavigationDelegate {
             forwardButton.tintColor = forwardButton.isEnabled ? .blue : .gray
         }
     }
+    
+    public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+        completionHandler(.useCredential, credential)
+    }
 }
