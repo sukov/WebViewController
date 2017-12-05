@@ -34,6 +34,8 @@ public extension WebViewControllerDelegate {
 }
 
 public class WebViewController: UIViewController {
+    fileprivate let estimatedProgressKeyPath = "estimatedProgress"
+    fileprivate let titleKeyPath = "title"
     fileprivate var webView: WKWebView!
     fileprivate lazy var toolBarView: UIView = {
         let toolBarView = UIView()
@@ -56,6 +58,21 @@ public class WebViewController: UIViewController {
     fileprivate var toolBarTopBorder: UIView!
     fileprivate var buttonLeftOffsetConstraints: [NSLayoutConstraint]!
     fileprivate var urlToLoad: String
+    fileprivate lazy var progressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .default)
+        progressView.trackTintColor = UIColor(white: 1, alpha: 0)
+        progressView.progressTintColor = .blue
+        return progressView
+    }()
+    public var progressTintColor: UIColor {
+        get {
+            return progressView.progressTintColor ?? .blue
+        }
+        
+        set {
+            progressView.progressTintColor = newValue
+        }
+    }
     public weak var delegate: WebViewControllerDelegate?
     override public var hidesBottomBarWhenPushed: Bool {
         get {
@@ -78,19 +95,33 @@ public class WebViewController: UIViewController {
     
     deinit {
         activityIndicatorOFF()
+        removeObservers()
     }
     
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupViews()
         setupConstraints()
         setupNavigationBar()
         loadUrl()
         delegate?.webViewController(self, setupAppearanceForMain: view)
+        setupObservers()
     }
     
-    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.addSubview(progressView)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        progressView.removeFromSuperview()
+    }
+    
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         let offset = (size.width - 200) / 5
@@ -99,15 +130,40 @@ public class WebViewController: UIViewController {
         }
     }
     
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        guard let navigationController = navigationController else { return }
+        progressView.frame = CGRect(x: 0, y: navigationController.navigationBar.frame.size.height - progressView.frame.size.height, width: navigationController.navigationBar.frame.size.width, height: progressView.frame.size.height)
+    }
+    
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        switch keyPath {
+        case estimatedProgressKeyPath?:
+            progressView.alpha = 1.0
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+            
+            if webView.estimatedProgress >= 1.0 {
+                UIView.animate(withDuration: 0.3, delay: 0.4, options: .curveEaseOut, animations: {
+                    self.progressView.alpha = 0
+                }, completion: { _ in
+                    self.progressView.setProgress(0, animated: false)
+                })
+            }
+        case titleKeyPath?:
+            navigationItem.title = webView.title
+        default:
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+    
     fileprivate func setupViews() {
         view.backgroundColor = .white
         
-        webView = UIWebView()
+        webView = WKWebView()
         webView.isOpaque = false
-        webView.delegate = self
+        webView.navigationDelegate = self
         view.addSubview(webView)
-        
-        toolBarView.backgroundColor = toolBarTintColor
         
         let imageEdgeInsets = UIEdgeInsetsMake(12, 0, 12, 0)
         let bundle = Bundle(for: type(of: self))
@@ -192,11 +248,24 @@ public class WebViewController: UIViewController {
     }
     
     fileprivate func setupNavigationBar() {
+        guard let navigationController = navigationController else { return }
+        
         var titleUrl = urlToLoad.replacingOccurrences(of: "http://", with: "").replacingOccurrences(of: "https://", with: "")
         if let firstSlashIndex = titleUrl.characters.index(of: "/") {
             titleUrl = titleUrl.substring(to: firstSlashIndex)
         }
         navigationItem.title = titleUrl
+        
+    }
+    
+    fileprivate func setupObservers() {
+        webView.addObserver(self, forKeyPath: estimatedProgressKeyPath, options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: titleKeyPath, options: .new, context: nil)
+    }
+    
+    fileprivate func removeObservers() {
+        webView.removeObserver(self, forKeyPath: estimatedProgressKeyPath)
+        webView.removeObserver(self, forKeyPath: titleKeyPath)
     }
     
     @objc fileprivate func backButtonTapped() {
