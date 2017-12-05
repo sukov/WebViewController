@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         setupViews()
     }
     
-    func setupViews() {
+    fileprivate func setupViews() {
         navigationItem.title = "Example"
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))

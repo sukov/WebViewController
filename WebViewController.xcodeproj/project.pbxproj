@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE1089531FD498B7006B1DC7 /* SHGWebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EE1089521FD498B7006B1DC7 /* SHGWebViewController.podspec */; };
 		EE7744E91FCC623900B68D38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE7744E81FCC623900B68D38 /* Images.xcassets */; };
 		EED4DEC41FCB28D000B08F07 /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EED4DEC21FCB28D000B08F07 /* WebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EED4DF101FCB2C5400B08F07 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4DF0F1FCB2C5400B08F07 /* WebViewController.swift */; };
@@ -170,7 +169,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7744E91FCC623900B68D38 /* Images.xcassets in Resources */,
-				EE1089531FD498B7006B1DC7 /* SHGWebViewController.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +240,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -294,6 +293,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -316,7 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukov.WebViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -336,7 +336,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sukov.WebViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

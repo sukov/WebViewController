@@ -251,8 +251,9 @@ public class WebViewController: UIViewController {
         guard let navigationController = navigationController else { return }
         
         var titleUrl = urlToLoad.replacingOccurrences(of: "http://", with: "").replacingOccurrences(of: "https://", with: "")
-        if let firstSlashIndex = titleUrl.characters.index(of: "/") {
-            titleUrl = titleUrl.substring(to: firstSlashIndex)
+        
+        if let firstSlashIndex = titleUrl.index(of: "/") {
+            titleUrl = String(titleUrl[firstSlashIndex...])
         }
         navigationItem.title = titleUrl
         
@@ -346,7 +347,7 @@ public class WebViewController: UIViewController {
      
      - Returns: A new optional string from the execution of the javascript file
      */
-    public func injectJavascriptFrom(resource: String, complete: @escaping (_ resultString: String?) -> Void) {
+    @objc public func injectJavascriptFrom(resource: String, complete: @escaping (_ resultString: String?) -> Void) {
         let jsPath: String? = Bundle.main.path(forResource: resource, ofType: "js")
         if let jsPath = jsPath {
             let js = try? String(contentsOfFile: jsPath, encoding: String.Encoding.utf8)
@@ -364,7 +365,7 @@ public class WebViewController: UIViewController {
      
      - Returns: A new optional string from the execution of the javascript code
      */
-    public func injectJavascriptFrom(string: String, complete: @escaping (_ resultString: String?) -> Void) {
+    @objc public func injectJavascriptFrom(string: String, complete: @escaping (_ resultString: String?) -> Void) {
         webView.evaluateJavaScript(string) { (result, error) in
             complete(result as? String)
         }
