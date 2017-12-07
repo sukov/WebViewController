@@ -31,7 +31,7 @@ end
 #### To use with Swift 3.x please ensure that you specify version 3.0.0
 
 ```ruby
-pod 'SHGWebViewController', '~> 1.0.1'
+pod 'SHGWebViewController', '~> 4.0.0'
 ```
 
 Then, run the following command:
