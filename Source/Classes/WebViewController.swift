@@ -300,6 +300,9 @@ public class WebViewController: UIViewController {
         alert.addAction(copyLinkAction)
         let alertCancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(alertCancelAction)
+        alert.popoverPresentationController?.permittedArrowDirections = []
+        alert.popoverPresentationController?.sourceView = view
+        alert.popoverPresentationController?.sourceRect = view.bounds
         present(alert, animated: true, completion: nil)
     }
     
