@@ -6,7 +6,7 @@
 [![Language Swift](https://img.shields.io/badge/Language-Swift%204.0-orange.svg?style=flat)](https://swift.org)
 [![Platform](https://img.shields.io/cocoapods/p/SHGWebViewController.svg?style=flat)](http://cocoapods.org/pods/SHGWebViewController)
 
-![WebViewController](https://i.imgur.com/lJhbHKE.png "WebViewController") ![WebViewController](https://i.imgur.com/KCqNFAP.png "WebViewController")
+![WebViewController](https://i.imgur.com/3fXIHPnl.png "WebViewController") ![WebViewController](https://i.imgur.com/7cgbzckl.png "WebViewController")
 
 ## Installation
 
