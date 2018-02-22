@@ -164,6 +164,7 @@ public class WebViewController: UIViewController {
         webView = WKWebView()
         webView.isOpaque = false
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         view.addSubview(webView)
         
         let imageEdgeInsets = UIEdgeInsetsMake(12, 0, 12, 0)
@@ -399,5 +400,15 @@ extension WebViewController: WKNavigationDelegate {
     public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
         completionHandler(.useCredential, credential)
+    }
+}
+
+extension WebViewController: WKUIDelegate {
+    // Fix for `target=_blank` links that open in new tab
+    public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if navigationAction.targetFrame == nil {
+            webView.load(navigationAction.request)
+        }
+        return nil
     }
 }
